@@ -27,17 +27,9 @@ public class ProductServiceImpl implements ProductService{
     public Product getProductByID(int id){
         //return product.stream().filter(product -> product.getId() == id).findFirst().orElse(new Product(0, "Not Found",0));
 
-try {
-    return  repo.findById(id).orElseThrow(()->new MyClassException("Unable to fetch the records"));
-}catch (Exception e){
-    e.printStackTrace();
-}
+        Product prod = repo.findById(id).orElseThrow(()->new MyClassException("Unable to fetch the records"));
 
-
-
-
-
-        return new Product();
+        return prod;
 
     }
 
